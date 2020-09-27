@@ -17,4 +17,11 @@ end
 
 # watch https://github.com/JuliaStats/Distributions.jl/pull/1184
 
-Base.convert(::Type{DiscreteNonParametric{T,P,Ts,Ps}}, d::DiscreteNonParametric) where {T,P,Ts,Ps} = DiscreteNonParametric{T,P,Ts,Ps}(convert(Ts, support(d)), convert(Ps, probs(d)), check_args=false)
+Base.convert(
+    ::Type{DiscreteNonParametric{T,P,Ts,Ps}},
+    d::DiscreteNonParametric,
+) where {T,P,Ts,Ps} = DiscreteNonParametric{T,P,Ts,Ps}(
+    convert(Ts, support(d)),
+    convert(Ps, probs(d)),
+    check_args = false,
+)
